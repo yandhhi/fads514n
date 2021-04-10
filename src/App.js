@@ -4,17 +4,19 @@ import React, { Component } from 'react';
 
 class App extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
-      list: ['Javascript', 'CSS', 'HTLM', 'React']
-    }
+      list: ['Javascript', 'CSS', 'HTLM', 'React'],
+    };
   }
   render() {
     return (
       <div style={styles.container}>
         <h1 style={styles.title}>Las tecnologias del Front</h1>
         <ul style={styles.list}>
-          {/* Tu codigo va aca */}
+          {this.state.list.map((style, i) => (
+            <li key={i}>{style}</li>
+          ))}
         </ul>
       </div>
     );
@@ -27,15 +29,15 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   title: {
-    marginTop: '100px'
+    marginTop: '100px',
   },
   list: {
     fontSize: '20px',
-    flexGrow: 6
-  }
-}
+    flexGrow: 6,
+  },
+};
 
 export default App;
